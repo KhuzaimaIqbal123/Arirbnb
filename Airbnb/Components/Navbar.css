@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #f8f9fa;
   }
   
   .navbar-logo {
@@ -19,13 +18,12 @@
   .navbar-user .btn {
     margin: 0 5px;
     padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
+    color: black;
     border: none;
     cursor: pointer;
   }
   
   .navbar-user .btn:hover {
-    background-color: #0056b3;
+    background-color: #e8eef6;
   }
   
