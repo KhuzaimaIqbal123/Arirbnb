@@ -3,6 +3,7 @@ import "./Categories.css";
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState(null);
+  
   const categories = [
     "Rooms", "Icons", "Arctic", "OMG!", "Farms", "Top cities", "Amazing views",
     "Design", "Countryside", "Mansions", "Chef's kitchens", "Bed & Breakfasts", 
