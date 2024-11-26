@@ -4,9 +4,9 @@ import SearchBar from "../Components/Searchbar";
 import Categories from "../Components/Categories";
 import ListingCard from "../Components/ListingCard";
 import Footer from "../Components/Footer";
-import './App.css'
+import './Homepage.css'
 
-function App() {
+function Homepage() {
   // Array of property objects
   const properties = [
     {
@@ -123,4 +123,4 @@ function App() {
   );
 }
 
-export default App;
+export default Homepage;
