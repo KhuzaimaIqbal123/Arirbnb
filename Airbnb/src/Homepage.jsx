@@ -12,13 +12,10 @@ function Homepage() {
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Simulated mock data fetch
     useEffect(() => {
 
-     // Simulate an API call
      const fetchData = async () => {
 
-      // Array of property objects
       const mockProperties = [
         {
           image: "https://a0.muscache.com/im/pictures/miso/Hosting-591171879509364369/original/1931fbae-0d17-4ef8-9cbe-595c7a29ee73.jpeg?im_w=720",
@@ -120,13 +117,12 @@ function Homepage() {
       ];
 
       setProperties(mockProperties);
-      setFilteredProperties(mockProperties); // Set initial display
+      setFilteredProperties(mockProperties); 
     };
 
     fetchData();
   }, []);
 
-  // Filter properties when the category changes
   useEffect(() => {
     if (selectedCategory) {
       const filtered = properties.filter(
@@ -134,7 +130,7 @@ function Homepage() {
       );
       setFilteredProperties(filtered);
     } else {
-      setFilteredProperties(properties); // Show all properties if no category selected
+      setFilteredProperties(properties);
     }
   }, [selectedCategory, properties]);
 

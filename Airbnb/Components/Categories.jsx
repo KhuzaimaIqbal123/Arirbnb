@@ -12,7 +12,7 @@ const Categories = ({ setSelectedCategory }) => {
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
-    setSelectedCategory(category); // Notify parent about category change
+    setSelectedCategory(category); 
   };
 
   return (
