@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "./Categories.css";
-
-const Categories = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
   
+const Categories = ({ setSelectedCategory }) => {
+    const [activeCategory, setActiveCategory] = useState(null);
+
   const categories = [
-    "Rooms", "Icons", "Arctic", "OMG!", "Farms", "Top cities", "Amazing views",
+    "Entire home", "Cabin", "Apartment", "Dinning Room", "Farms", "Top cities", "Amazing views",
     "Design", "Countryside", "Mansions", "Chef's kitchens", "Bed & Breakfasts", 
     "BeachFront", "Beach", "Tropical", "Castles", "Amazing pools"
   ];
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
+    setSelectedCategory(category); // Notify parent about category change
   };
 
   return (
