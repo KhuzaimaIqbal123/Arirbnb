@@ -7,7 +7,7 @@ const Categories = ({ setSelectedCategory }) => {
   const categories = [
     "Entire home", "Cabin", "Apartment", "Dinning Room", "Farms", "Top cities", "Amazing views",
     "Design", "Countryside", "Mansions", "Chef's kitchens", "Bed & Breakfasts", 
-    "BeachFront", "Beach", "Tropical", "Castles", "Amazing pools"
+    "BeachFront"
   ];
 
   const handleCategoryClick = (category) => {
