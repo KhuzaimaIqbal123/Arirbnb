@@ -146,6 +146,7 @@ function Homepage() {
           ))
         ) : (
           <p>No listings available for this category.</p>
+          
         )}
       </div>
         <Footer />
