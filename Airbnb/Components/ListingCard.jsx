@@ -1,8 +1,15 @@
-// ListingCard.js
-import React from 'react';
-import './ListingCard.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./ListingCard.css";
 
 function ListingCard({ property }) {
+    const navigate = useNavigate();
+
+    const handleBooking = () => {
+        // Navigate to the booking page with the property id
+        navigate(`/booking/${property.id}`);
+    };
+
     return (
         <div className="listing-card">
             <img src={property.image} alt={property.title} className="property-image" />
@@ -14,6 +21,9 @@ function ListingCard({ property }) {
                 </p>
                 <p className="price-per-night">${property.price} / night</p>
                 <p className="rating">★ {property.rating}</p>
+                <button className="booking-button" onClick={handleBooking}>
+                    Book Now
+                </button>
             </div>
         </div>
     );

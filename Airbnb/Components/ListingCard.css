@@ -9,6 +9,22 @@
     cursor: pointer;
   }
   
+  .booking-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #1561b3;
+    color: #f5e6e6;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.booking-button:hover {
+    background-color: #0056b3;
+}
+
   .listing-card:hover {
     transform: translateY(-5px);
   }
