@@ -1,33 +1,38 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
+import axios from "axios";
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-    // Mock signup logic
-    alert("Signup successful!");
-    navigate("/login"); // Redirect to login page
-  };
+    try{
 
+      const response = await axios.post("http://localhost:5000/auth/signup", {
+        username,
+        password,
+      
+    } );
+
+    alert("Signup successful!");
+    navigate("/login"); 
+  } catch (error) {
+    console.error(error);};
+  }
   return (
     <div className="signup-container">
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
         <input
@@ -37,13 +42,7 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
+      
         <button type="submit">Signup</button>
       </form>
     </div>

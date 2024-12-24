@@ -1,21 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route ,Navigate} from "react-router-dom";
 import Homepage from "./Homepage";
 import Login from "../Components/Login";
 import Signup from "../Components/Signup";
 import BookingPage from "../Components/BookingPage";
+import { useAuthStore } from "./store/useAuthStore";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 root.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/booking/:id" element={<BookingPage />} />
-
-    </Routes>
-  </Router>
+  
+  <StrictMode>
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
+  </StrictMode>
 );
-

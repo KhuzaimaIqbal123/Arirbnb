@@ -6,7 +6,6 @@ function ListingCard({ property }) {
     const navigate = useNavigate();
 
     const handleBooking = () => {
-        // Navigate to the booking page with the property id
         navigate(`/booking/${property.id}`);
     };
 

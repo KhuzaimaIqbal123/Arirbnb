@@ -1,21 +1,33 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import axios from "axios";
+import {useAuthStore} from '../src/store/useAuthStore';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+
+  const {setUser} = useAuthStore();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock login logic
-    if (email === "user@example.com" && password === "password") {
+
+    try{
+
+      const response = await axios.post("http://localhost:5000/auth/login", {
+        username,
+        password,
+      
+    } );
+    localStorage.setItem("token", response.data.token);
+    setUser(response.data);
+    console.log(response.data);
       alert("Login successful!");
-      navigate("/"); // Redirect to homepage
-    } else {
-      alert("Invalid credentials. Please try again.");
-    }
+      navigate("/"); 
+  } catch (error) {
+    console.error(error);};
   };
 
   return (
@@ -23,10 +35,10 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
         <input
